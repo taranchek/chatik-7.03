@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito';
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-image: url("images/background.jpg");
+}
+
+a {
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+}
+/* Стиль для размытия фона при открытии модального окна */
+.blur-element {
+    filter: blur(3px);
+}
+/* Стиль для выравнивания по центру */
+.aligncenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Основной контейнер */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 950px;
+    height: 100%;
+    backdrop-filter: blur(3px);
+
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+/* Шапка сайта */
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em 1.5em;
+    
+    background: #f07da9;
+    box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+/* Лого */
+.header .logo {
+    display: inline-flex;
+    align-items: center;
+}
+/* Изображение лого */
+.header img {
+    width: 4em;
+    height: 4em;
+}
+/* Наименование лого */
+.header .logoname {
+    margin-left: 0.5em;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 2px 7px 6px rgba(255, 255, 255, 0.3), 
+    0px -4px 10px rgba(223, 223, 223, 0.3);
+}
+/* Список с ссылками */
+.header ul {
+    display: inline-flex;
+    list-style-type: none;
+}
+.header ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1em;
+}
+/* У последнего элемента списка выставляем больший отступ */
+.header ul li:nth-last-child(1) {
+    margin-left: 4em;
+}
+
+#online-box {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    background-color: #e0e0e0;
+    border-radius: 0 0 1em 1em;
+}
+
+/* Основное окно с сообщениями */
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 85%;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.chat-box::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.chat-box .message {
+    display: flex;
+    padding: 0.5em 1em;
+
+}
+
+.chat-box .message div {
+    min-width: 120px;
+    max-width: 80%;
+    padding: 4px 8px;
+    /* background-color: #fff; */
+    border-radius: 10px;
+    padding: 4px 8px;
+    color:#99007f;
+
+}
+
+.chat-box .message.me-message {
+    justify-content: flex-end;
+}
+
+.chat-box .message.other-message {
+    justify-content: flex-start;
+}
+
+.chat-box .message .name {
+    display: flex;
+    width: 100%;
+    color: #777;
+    font-size: 0.8em;
+}
+
+.chat-box .message .text {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.chat-box .update {
+    text-align: center;
+    padding: 0.5em;
+    font-style: italic;
+}
+
+/* Стили для нижнего меню с кнопками и текстовым полем */
+.chat-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 6em;
+    padding: 0 1em;
+    border-radius: 1em 1em 0 0;
+}
+.chat-panel button {
+    height: 50%;
+    aspect-ratio: 1/1;
+    border: 0;
+    background: transparent;
+    outline: none;
+}
+.chat-panel button svg {
+    display: flex;
+    width: 90%;
+    height: 90%;
+}
+.input-area {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    padding: 0 1em;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+}
+.input-area input {
+    width: 100%;
+    border: 0;
+    padding: 8px 10px;
+    margin: 0 0.5em;
+    border-radius: 20px;
+    font-size: 1em;
+    outline: 0;
+    resize: none;
+    overflow: hidden;
+}
+.chat-panel #send-message-btn {
+    border-radius: 50%;
+    margin-left: 16px;
+}
+
+#typing-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3em;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+#typing-message.visible {
+    opacity: 1;
+}
+
+/* Окно для автоизации */
+.join-screen {
+    display: block;
+    position: absolute;
+    width: 90%;
+    max-width: 600px;
+    padding: 1em;
+    border: 1px solid;
+    border-radius: 5px;
+    z-index: 10;
+    overflow: hidden;
+    background-color: #eee;
+}
+/* Линия под заголовком */
+.join-screen h1 {
+    border-bottom: 2px solid #fdfff5;
+}
+/* Стиль для поля */
+.join-screen input[type=text] {
+    float: left;
+    outline: 0;
+    border: 2px solid #fdfff5;
+    width: 70%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 1em;
+}
+/* Стиль для кнопки JOIN */
+.join-screen #join-chat-btn {
+    float: right;
+    outline: 0;
+    border: 2px solid #fdfff5;
+    width: 20%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 1em;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+/* #smiley-screen {
+    display: none;
+    width: 10%;
+    max-width: 100px;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    z-index: 20;
+} */
+
+.smiley-dropdown-content {
+    position: absolute;
+    top: 82%;
+    left: 2%;
+    z-index: 20;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px;
+    border-radius: 4px;
+}
+.show {
+    display: block;
+}
+.smiley-dropdown-content .smiley {
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.smiley-dropdown-content .smiley:hover {
+    opacity: 0.8;
+}
+.smiley-dropdown.show .smiley-dropdown-content {
+    display: block;
+}
+
+@media screen and (max-width: 800px) {
+    .header ul {
+        display: none;
+    }
+}
