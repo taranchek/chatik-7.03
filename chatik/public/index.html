@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Chat</title>
+</head>
+<body>
+    <div class="join-screen">
+        <h1 class="">Добро пожаловать в чатик<br>Как вас зовут?</h1>
+        <br>
+        <input id="username" type="text" required placeholder="Ваше имя...">
+        <button id="join-chat-btn">Начать</button>
+    </div>
+    <div class="container blur-element">
+        <div class="header">
+            <div class="logo">
+                <div class="logoname">Chatik</div>
+            </div>
+            <ul>
+                <li><button id="logout">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: block">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+                            <path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
+                         </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="chat-box"></div>
+        <div id="typing-message"></div>
+        <div class="smiley-dropdown-content">
+            <div class="smiley" data-smiley="❤">❤</div>
+            <div class="smiley" data-smiley="😊">😊</div>
+            <div class="smiley" data-smiley="シ"> シ</div>
+            <div class="smiley" data-smiley="☝">☝</div>
+        </div>
+        <div class="chat-panel">
+            <div class="input-area">
+                <button id="smiley-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mood-smile" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                        <path d="M9 10l.01 0"></path>
+                        <path d="M15 10l.01 0"></path>
+                        <path d="M9.5 15a3.5 3.5 0 0 0 5 0"></path>
+                     </svg>
+                </button>
+                <input type="text" id="message-input" placeholder="Сообщение">
+            </div>
+            <button id="send-message-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-telegram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path>
+                 </svg>
+            </button>
+        </div>
+    </div>
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
